@@ -1,6 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Dimensions,
+} from "react-native";
+
+const { height, width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default function App() {
   return (
@@ -8,12 +17,33 @@ export default function App() {
       <View style={styles.city}>
         <Text style={styles.cityName}>Los Angeles</Text>
       </View>
-      <View style={styles.wheather}>
+      <ScrollView
+        pagingEnabled
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.wheather}
+      >
         <View style={styles.day}>
           <Text style={styles.temp}>27</Text>
           <Text style={styles.description}>Sunny</Text>
         </View>
-      </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -32,16 +62,14 @@ const styles = StyleSheet.create({
     fontSize: 65,
     fontWeight: "400",
   },
-  wheather: {
-    flex: 3,
-  },
+  wheather: {},
   day: {
-    flex: 1,
+    width: SCREEN_WIDTH,
     alignItems: "center",
   },
   temp: {
     marginTop: 50,
-    fontSize: 160,
+    fontSize: 170,
   },
   description: {
     marginTop: -30,
